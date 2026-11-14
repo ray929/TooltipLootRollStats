@@ -21,33 +21,14 @@ local function FormatValue(value)
 	return GOLD .. L.COUNT:format(value) .. "|r"
 end
 
--- 提示框一行只能有一种字号，所以更新时间单独占一行，并把那一行的字号调小
-local function ShrinkLastLine(tooltip)
-	if not tooltip.NumLines or not tooltip.GetName then return end
-
-	local okCount, index = pcall(tooltip.NumLines, tooltip)
-	if not okCount or type(index) ~= "number" or index < 1 then return end
-
-	local okName, name = pcall(tooltip.GetName, tooltip)
-	if not okName or not name then return end
-
-	local line = _G[name .. "TextLeft" .. index]
-	if not line or not line.GetFont or not line.SetFont then return end
-
-	local okFont, font, size, flags = pcall(line.GetFont, line)
-	if not okFont or not font or not size then return end
-	pcall(line.SetFont, line, font, math.max(8, size - 2), flags)
-end
-
+-- 提示框的 FontString 是复用的：改字号会留在那个对象上，下一次渲染（包括别的插件写的行）
+-- 继续用改过的字号。所以这里不碰字体，时间戳跟数值同一行，只做灰色弱化。
 local function AddStatsLines(tooltip, entry)
-	local main = L.LINE:format(FormatValue(entry and entry.n), FormatValue(entry and entry.g))
-	if not pcall(tooltip.AddLine, tooltip, main, 1, 1, 1, true) then return end
-	if not entry or type(entry.t) ~= "number" then return end
-
-	local stamp = GRAY .. L.UPDATED:format(date(L.DATE, entry.t)) .. "|r"
-	if pcall(tooltip.AddLine, tooltip, stamp, 1, 1, 1, true) then
-		ShrinkLastLine(tooltip)
+	local text = L.LINE:format(FormatValue(entry and entry.n), FormatValue(entry and entry.g))
+	if entry and type(entry.t) == "number" then
+		text = text .. " " .. GRAY .. L.UPDATED:format(date(L.DATE, entry.t)) .. "|r"
 	end
+	pcall(tooltip.AddLine, tooltip, text, 1, 1, 1, true)
 end
 
 -- 提示框里到底是谁：data.guid 是权威身份，GetUnit() 只作补充

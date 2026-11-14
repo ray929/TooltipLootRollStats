@@ -8,11 +8,10 @@ The two numbers are that character's all-time totals from Blizzard's statistics.
 
 ### What it does
 
-Hovering a player adds two lines to the unit tooltip:
+Hovering a player adds a line to the unit tooltip:
 
 ```
-Need: 128  Greed: 342
-(updated:2026-11-14 13:40)
+Need: 128  Greed: 342 (updated:2026-11-14 13:40)
 ```
 
 The values are read from the achievement statistics through the achievement comparison API. Until the server answers you see `Need: -  Greed: -`, and the tooltip refreshes by itself when the data arrives.
@@ -45,7 +44,7 @@ The values are read from the achievement statistics through the achievement comp
 
 - Only players the client lets you inspect. Out of range, other faction, or a different phase keeps showing `-`.
 - One achievement comparison runs at a time, so a second player waits for the first to finish or time out.
-- A tooltip line holds a single font size, so the timestamp sits on its own line, two points smaller than the values.
+- `updated` is when the addon read the numbers, not when the game counted them.
 - The numbers are all-time totals exactly as the client reports them. The addon adds no estimates and no interpretation.
 
 ## 简体中文
@@ -56,11 +55,10 @@ The values are read from the achievement statistics through the achievement comp
 
 ### 简介
 
-鼠标指向玩家时，在单位提示框加两行：
+鼠标指向玩家时，在单位提示框加一行：
 
 ```
-需求: 128次  贪婪: 342次
-(updated:2026-11-14 13:40)
+需求: 128次  贪婪: 342次 (updated:2026-11-14 13:40)
 ```
 
 数值取自成就统计，通过成就比较接口向服务器查询。数据没回来之前显示 `需求: -  贪婪: -`，回来后提示框会自己刷新。
@@ -93,7 +91,7 @@ The values are read from the achievement statistics through the achievement comp
 
 - 只能读到客户端允许观察的玩家。距离过远、跨阵营、副本相位不同，都会一直显示 `-`。
 - 同一时间只能比较一个玩家，快速换目标时后一个要等前一个结束或超时。
-- 提示框一行只能有一种字号，所以更新时间单独占一行，比数值那行小 2 点。
+- `updated` 是插件读到这组数的时刻，不是游戏记账的时刻。
 - 数字是客户端给出的累计次数，插件不做推算，也不做任何评价。
 
 ## 正體中文
@@ -104,11 +102,10 @@ The values are read from the achievement statistics through the achievement comp
 
 ### 簡介
 
-滑鼠移到玩家身上時，在單位提示框加兩行：
+滑鼠移到玩家身上時，在單位提示框加一行：
 
 ```
-需求: 128次  貪婪: 342次
-(updated:2026-11-14 13:40)
+需求: 128次  貪婪: 342次 (updated:2026-11-14 13:40)
 ```
 
 數值取自成就統計，透過成就比較介面向伺服器查詢。資料還沒回來之前顯示 `需求: -  貪婪: -`，回來後提示框會自己更新。
@@ -141,5 +138,5 @@ The values are read from the achievement statistics through the achievement comp
 
 - 只能讀到客戶端允許觀察的玩家。距離太遠、跨陣營、副本相位不同，都會一直顯示 `-`。
 - 同一時間只能比較一個玩家，快速換目標時後一個要等前一個結束或逾時。
-- 提示框一行只能有一種字級，所以更新時間單獨佔一行，比數值那行小 2 點。
+- `updated` 是插件讀到這組數的時刻，不是遊戲記帳的時刻。
 - 數字是客戶端給出的累計次數，插件不做推算，也不做任何評價。
