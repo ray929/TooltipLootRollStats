@@ -8,6 +8,7 @@
 ## Author: ray929
 ## IconTexture: Interface\Icons\INV_Misc_Coin_02
 ## Version: @project-version@
+## X-Curse-Project-ID: 1804223
 ## SavedVariables: TooltipLootRollStatsDB
 
 Locale.lua
