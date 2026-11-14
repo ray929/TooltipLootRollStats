@@ -187,6 +187,30 @@ function TT:IsAchievementUIOpen()
 	return false
 end
 
+-- 暴雪的比较面板在 OnLoad 里就注册了 INSPECT_ACHIEVEMENT_READY，之后哪怕一直藏着，
+-- 事件一到也会跑 AchievementFrameComparison_OnEvent：它先 ClearSelectedCategories()，
+-- 再把 "summary"（字符串）传给 GetCategoryNumAchievements，直接抛 Usage 错。
+-- 我们的每次查询都会发这个事件，所以看起来像我们的错。面板隐藏时并不需要这个事件，
+-- 这里先摘掉，等它 OnShow（用户真的打开比较页）再挂回去。
+function TT:SilenceComparisonPane()
+	local pane = AchievementFrameComparison
+	if not pane or not pane.IsShown then return end
+	local ok, shown = pcall(pane.IsShown, pane)
+	if not ok or shown then return end
+	if not self.paneHooked then
+		self.paneHooked = true
+		pcall(pane.HookScript, pane, "OnShow", function(frame)
+			pcall(frame.RegisterEvent, frame, "INSPECT_ACHIEVEMENT_READY")
+		end)
+		pcall(pane.HookScript, pane, "OnHide", function(frame)
+			pcall(frame.UnregisterEvent, frame, "INSPECT_ACHIEVEMENT_READY")
+		end)
+	end
+	if pane.IsEventRegistered and pane:IsEventRegistered("INSPECT_ACHIEVEMENT_READY") then
+		pcall(pane.UnregisterEvent, pane, "INSPECT_ACHIEVEMENT_READY")
+	end
+end
+
 function TT:ClearComparison()
 	if self:IsAchievementUIOpen() then return end
 	if ClearAchievementComparisonUnit then
@@ -238,6 +262,8 @@ function TT:StartRequest(guid, token, force)
 		Debug("成就界面打开中，跳过查询")
 		return false
 	end
+
+	self:SilenceComparisonPane()
 
 	local unit = self:FindToken(guid, token)
 	if not unit then
