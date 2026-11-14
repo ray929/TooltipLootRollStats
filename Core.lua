@@ -173,7 +173,7 @@ end
 
 function TT:TokenMatches(token, guid)
 	if token == nil or IsSecret(token) then return false end
-	if type(token) ~= "string" or guid == nil then return false end
+	if type(token) ~= "string" or guid == nil or IsSecret(guid) then return false end
 	if not UnitExists(token) then return false end
 	local tokenGUID = UnitGUID(token)
 	if tokenGUID == nil or IsSecret(tokenGUID) then return false end
