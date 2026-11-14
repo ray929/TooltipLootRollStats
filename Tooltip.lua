@@ -100,8 +100,10 @@ local function DwellTick()
 	end
 
 	local now = GetTime()
-	if now - dwellAt < DWELL then
-		ArmDwell(DWELL - (now - dwellAt))
+	local remaining = DWELL - (now - dwellAt)
+	if remaining > 0 then
+		-- 夹一个下限：剩余时间可能被浮点算成 0，那样 C_Timer.After(0) 会原地重排、卡死
+		ArmDwell(math.max(0.05, remaining))
 		return
 	end
 

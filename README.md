@@ -45,6 +45,7 @@ The values are read from the achievement statistics through the achievement comp
 - Only players the client lets you inspect. Out of range, other faction, or a different phase keeps showing `-`.
 - One achievement comparison runs at a time, so a second player waits for the first to finish or time out.
 - The numbers are all-time totals exactly as the client reports them. The addon adds no estimates and no interpretation.
+- While the achievements window is open the addon stays hands-off: it does not touch the comparison unit, so Blizzard's comparison pane is never disturbed.
 
 ## 简体中文
 
@@ -91,6 +92,7 @@ The values are read from the achievement statistics through the achievement comp
 - 只能读到客户端允许观察的玩家。距离过远、跨阵营、副本相位不同，都会一直显示 `-`。
 - 同一时间只能比较一个玩家，快速换目标时后一个要等前一个结束或超时。
 - 数字是客户端给出的累计次数，插件不做推算，也不做任何评价。
+- 成就界面打开时暂停查询：不去动比较单位，避免和暴雪自己的比较面板互相刷新。
 
 ## 正體中文
 
@@ -137,3 +139,4 @@ The values are read from the achievement statistics through the achievement comp
 - 只能讀到客戶端允許觀察的玩家。距離太遠、跨陣營、副本相位不同，都會一直顯示 `-`。
 - 同一時間只能比較一個玩家，快速換目標時後一個要等前一個結束或逾時。
 - 數字是客戶端給出的累計次數，插件不做推算，也不做任何評價。
+- 成就介面打開時暫停查詢：不去動比較單位，避免和暴雪自己的比較面板互相更新。

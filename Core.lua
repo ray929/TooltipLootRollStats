@@ -176,7 +176,19 @@ function TT:ReadComparison()
 	return need, greed
 end
 
+-- 成就界面开着时不要动比较单位：Blizzard 的比较面板会跟着刷新，而它在「摘要」页
+-- （id = "summary"）会把字符串当 categoryID 传给 GetCategoryNumAchievements，直接抛
+-- "Usage: GetCategoryNumAchievements(categoryID, includeSuperceded)"。
+function TT:IsAchievementUIOpen()
+	local frame = AchievementFrame
+	if frame and frame.IsShown and frame:IsShown() then return true end
+	local comparison = AchievementFrameComparison
+	if comparison and comparison.IsShown and comparison:IsShown() then return true end
+	return false
+end
+
 function TT:ClearComparison()
+	if self:IsAchievementUIOpen() then return end
 	if ClearAchievementComparisonUnit then
 		pcall(ClearAchievementComparisonUnit)
 	end
@@ -221,6 +233,11 @@ end
 function TT:StartRequest(guid, token, force)
 	if not guid or self.inFlight then return false end
 	if not force and not self:NeedsRefresh(guid) then return false end
+
+	if self:IsAchievementUIOpen() then
+		Debug("成就界面打开中，跳过查询")
+		return false
+	end
 
 	local unit = self:FindToken(guid, token)
 	if not unit then
