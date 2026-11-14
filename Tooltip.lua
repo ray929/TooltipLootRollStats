@@ -21,13 +21,10 @@ local function FormatValue(value)
 	return GOLD .. L.COUNT:format(value) .. "|r"
 end
 
--- 提示框的 FontString 是复用的：改字号会留在那个对象上，下一次渲染（包括别的插件写的行）
--- 继续用改过的字号。所以这里不碰字体，时间戳跟数值同一行，只做灰色弱化。
-local function AddStatsLines(tooltip, entry)
+-- 提示框的 FontString 是复用的，改字体或字号会留到后续渲染（包括别的插件写的行），
+-- 所以这里只加文本，不碰字体，也不加时间戳。
+local function AddStatsLine(tooltip, entry)
 	local text = L.LINE:format(FormatValue(entry and entry.n), FormatValue(entry and entry.g))
-	if entry and type(entry.t) == "number" then
-		text = text .. " " .. GRAY .. L.UPDATED:format(date(L.DATE, entry.t)) .. "|r"
-	end
 	pcall(tooltip.AddLine, tooltip, text, 1, 1, 1, true)
 end
 
@@ -157,7 +154,7 @@ local function OnUnitTooltip(tooltip, data)
 		end
 	end
 
-	AddStatsLines(tooltip, entry)
+	AddStatsLine(tooltip, entry)
 end
 
 -- 数据到手后，如果提示框还停在这个人身上，重建一次让它显示新数字

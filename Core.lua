@@ -9,11 +9,11 @@ ns.TT = TT
 TT.STAT_NEED = 1044    -- 需求掷骰次数
 TT.STAT_GREED = 1043   -- 贪婪掷骰次数
 
-TT.CACHE_TTL = 24 * 3600      -- 超过一天的数据允许后台刷新
+TT.CACHE_TTL = 10 * 60         -- 超过 10 分钟就重新取，取到之前继续显示旧值
 TT.RETRY_AFTER = 300          -- 查询失败后同一玩家 5 分钟内不再重试
 TT.REQUEST_TIMEOUT = 6        -- 服务端迟迟不回包就当失败
-TT.CACHE_MAX = 2000           -- 缓存条数上限
-TT.CACHE_KEEP_DAYS = 180      -- 超过半年的记录直接清掉
+TT.CACHE_MAX = 1000           -- 缓存条数上限
+TT.CACHE_KEEP_DAYS = 30       -- 超过 30 天的记录直接清掉
 
 TT.debug = false
 TT.failedAt = {}

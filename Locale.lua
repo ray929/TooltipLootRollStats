@@ -17,10 +17,7 @@ local STRINGS = {}
 
 STRINGS.enUS = {
 	LINE = "Need: %s  Greed: %s",
-	UPDATED = "(updated:%s)",
 	COUNT = "%d",
-	DATE = "%Y-%m-%d %H:%M",
-
 	MSG_STATUS = "%d cached entries. Type /tlrs help for commands.",
 	MSG_CLEARED = "Cache cleared, %d entries removed.",
 	MSG_NO_TARGET = "Your target is not a player.",
@@ -45,10 +42,7 @@ STRINGS.enUS = {
 
 STRINGS.zhCN = {
 	LINE = "需求: %s  贪婪: %s",
-	UPDATED = "(updated:%s)",
 	COUNT = "%d次",
-	DATE = "%Y-%m-%d %H:%M",
-
 	MSG_STATUS = "缓存 %d 条记录。输入 /tlrs help 查看命令。",
 	MSG_CLEARED = "已清空缓存，共 %d 条。",
 	MSG_NO_TARGET = "当前目标不是玩家，无法查询。",
@@ -73,10 +67,7 @@ STRINGS.zhCN = {
 
 STRINGS.zhTW = {
 	LINE = "需求: %s  貪婪: %s",
-	UPDATED = "(updated:%s)",
 	COUNT = "%d次",
-	DATE = "%Y-%m-%d %H:%M",
-
 	MSG_STATUS = "快取 %d 筆記錄。輸入 /tlrs help 查看指令。",
 	MSG_CLEARED = "已清空快取，共 %d 筆。",
 	MSG_NO_TARGET = "目前目標不是玩家，無法查詢。",

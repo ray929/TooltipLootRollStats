@@ -11,7 +11,7 @@ The two numbers are that character's all-time totals from Blizzard's statistics.
 Hovering a player adds a line to the unit tooltip:
 
 ```
-Need: 128  Greed: 342 (updated:2026-11-14 13:40)
+Need: 128  Greed: 342
 ```
 
 The values are read from the achievement statistics through the achievement comparison API. Until the server answers you see `Need: -  Greed: -`, and the tooltip refreshes by itself when the data arrives.
@@ -23,9 +23,9 @@ The values are read from the achievement statistics through the achievement comp
 
 - Cached per player GUID, shared by every character on the account.
 - A query starts only after the cursor rests 0.6s on the same player, and only one runs at a time.
-- Cached entries show instantly; entries older than 24h refresh in the background.
+- Cached numbers show instantly. Anything older than 10 minutes is re-read in the background, and the old numbers stay on screen until the new ones arrive.
 - Failed lookups (out of range, not inspectable, timeout) are not cached and are retried after 5 minutes.
-- Records older than 180 days, or beyond 2000 entries, are pruned.
+- Records older than 30 days, or beyond 1000 entries, are pruned.
 - Your own character is read from local statistics, no query needed.
 - English, Simplified Chinese and Traditional Chinese, switchable without reloading.
 
@@ -44,7 +44,6 @@ The values are read from the achievement statistics through the achievement comp
 
 - Only players the client lets you inspect. Out of range, other faction, or a different phase keeps showing `-`.
 - One achievement comparison runs at a time, so a second player waits for the first to finish or time out.
-- `updated` is when the addon read the numbers, not when the game counted them.
 - The numbers are all-time totals exactly as the client reports them. The addon adds no estimates and no interpretation.
 
 ## 简体中文
@@ -58,7 +57,7 @@ The values are read from the achievement statistics through the achievement comp
 鼠标指向玩家时，在单位提示框加一行：
 
 ```
-需求: 128次  贪婪: 342次 (updated:2026-11-14 13:40)
+需求: 128次  贪婪: 342次
 ```
 
 数值取自成就统计，通过成就比较接口向服务器查询。数据没回来之前显示 `需求: -  贪婪: -`，回来后提示框会自己刷新。
@@ -70,9 +69,9 @@ The values are read from the achievement statistics through the achievement comp
 
 - 按玩家 GUID 缓存，同一账号下所有角色共用一份。
 - 光标在同一个人身上停留 0.6 秒才发起查询，且同一时间只跑一个，扫过一群人不会挨个去问。
-- 有缓存立刻显示；超过 24 小时的记录在后台刷新。
+- 有缓存立刻显示；超过 10 分钟的会在后台重取，取到之前屏幕上还是旧数字。
 - 查询失败（超出范围、不可观察、超时）不写缓存，同一个人 5 分钟内不重试。
-- 记录超过 180 天或总数超过 2000 条时自动清理。
+- 记录超过 30 天或总数超过 1000 条时自动清理。
 - 自己的角色直接读本地统计，不发查询。
 - 英语 / 简体中文 / 繁体中文三套文案，切换后立即生效，不用重载。
 
@@ -91,7 +90,6 @@ The values are read from the achievement statistics through the achievement comp
 
 - 只能读到客户端允许观察的玩家。距离过远、跨阵营、副本相位不同，都会一直显示 `-`。
 - 同一时间只能比较一个玩家，快速换目标时后一个要等前一个结束或超时。
-- `updated` 是插件读到这组数的时刻，不是游戏记账的时刻。
 - 数字是客户端给出的累计次数，插件不做推算，也不做任何评价。
 
 ## 正體中文
@@ -105,7 +103,7 @@ The values are read from the achievement statistics through the achievement comp
 滑鼠移到玩家身上時，在單位提示框加一行：
 
 ```
-需求: 128次  貪婪: 342次 (updated:2026-11-14 13:40)
+需求: 128次  貪婪: 342次
 ```
 
 數值取自成就統計，透過成就比較介面向伺服器查詢。資料還沒回來之前顯示 `需求: -  貪婪: -`，回來後提示框會自己更新。
@@ -117,9 +115,9 @@ The values are read from the achievement statistics through the achievement comp
 
 - 依玩家 GUID 快取，同一帳號下所有角色共用一份。
 - 滑鼠在同一個人身上停留 0.6 秒才發起查詢，且同一時間只跑一個，掃過一群人不會逐個去問。
-- 有快取立刻顯示；超過 24 小時的記錄在背景更新。
+- 有快取立刻顯示；超過 10 分鐘的會在背景重取，取到之前畫面上還是舊數字。
 - 查詢失敗（超出範圍、無法觀察、逾時）不寫入快取，同一個人 5 分鐘內不重試。
-- 記錄超過 180 天或總數超過 2000 筆時自動清理。
+- 記錄超過 30 天或總數超過 1000 筆時自動清理。
 - 自己的角色直接讀本機統計，不發查詢。
 - 英文 / 簡體中文 / 繁體中文三套文案，切換後立即生效，不用重新載入。
 
@@ -138,5 +136,4 @@ The values are read from the achievement statistics through the achievement comp
 
 - 只能讀到客戶端允許觀察的玩家。距離太遠、跨陣營、副本相位不同，都會一直顯示 `-`。
 - 同一時間只能比較一個玩家，快速換目標時後一個要等前一個結束或逾時。
-- `updated` 是插件讀到這組數的時刻，不是遊戲記帳的時刻。
 - 數字是客戶端給出的累計次數，插件不做推算，也不做任何評價。
