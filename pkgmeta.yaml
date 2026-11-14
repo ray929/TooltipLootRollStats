@@ -1,0 +1,8 @@
+package-as: TooltipLootRollStats
+enable-nolib-creation: no
+
+# 仓库根就是插件目录，CF 打包器会把未忽略的文件全塞进 zip，
+# 所以只放行 toc + lua，开发资料挡在外面。
+ignore:
+  - .gitignore
+  - README.md

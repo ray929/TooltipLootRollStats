@@ -62,3 +62,5 @@ WoW: Forever 客户端插件。鼠标指向玩家时，在单位提示框末尾�
 ## 安装
 
 游戏目录里的 `Interface\AddOns\TooltipLootRollStats` 是指向本仓库的 junction，改完代码 `/reload` 即可生效。
+
+版本号由 CurseForge 打包器按 tag 写进 toc（`@project-version@`），本地直接链接这份源码时，插件列表里显示的就是这串占位符，属正常现象。
