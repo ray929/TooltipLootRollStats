@@ -6,6 +6,8 @@
 
 The two numbers are that character's all-time totals from Blizzard's statistics. They say how often the player picked Need or Greed, nothing about whether any single roll was fair.
 
+Treat the numbers as reference only. Whether someone counts as a ninja is your call, not the addon's: the counters cannot tell you why a roll was made.
+
 ### What it does
 
 Hovering a player adds a line to the unit tooltip:
@@ -53,6 +55,8 @@ The values are read from the achievement statistics through the achievement comp
 
 这两个数字是暴雪统计里该角色的累计次数，只说明该玩家点过多少次需求 / 贪婪，不构成对任何一次分配的判断。
 
+数据仅供参考。是否属于 ninja 需要你自己判断，插件不下结论：两个计数看不出一次需求背后的理由。
+
 ### 简介
 
 鼠标指向玩家时，在单位提示框加一行：
@@ -99,6 +103,8 @@ The values are read from the achievement statistics through the achievement comp
 **僅供資料顯示，請勿對號入座。**
 
 這兩個數字是暴雪統計裡該角色的累計次數，只說明該玩家點過多少次需求 / 貪婪，不構成對任何一次分配的判斷。
+
+資料僅供參考。是否屬於 ninja 需要你自己判斷，插件不下結論：兩個計數看不出一次需求背後的理由。
 
 ### 簡介
 
