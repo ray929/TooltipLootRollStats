@@ -23,7 +23,6 @@ local function LanguageLabel()
 end
 
 SLASH_TOOLTIPLOOTROLLSTATS1 = "/tlrs"
-SLASH_TOOLTIPLOOTROLLSTATS2 = "/lootrollstats"
 SlashCmdList["TOOLTIPLOOTROLLSTATS"] = function(msg)
 	msg = tostring(msg or "")
 	msg = msg:gsub("^%s+", ""):gsub("%s+$", ""):lower()

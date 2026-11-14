@@ -46,6 +46,7 @@ WoW: Forever 客户端插件。鼠标指向玩家时，在单位提示框末尾�
 
 ## 缓存规则
 
+- 存档是账号级的（`## SavedVariables`，不是 `PerCharacter`）：文件在 `WTF\Account\<账号>\SavedVariables\TooltipLootRollStats.lua`，同一 WoW 账号下所有角色共用一份缓存，任一角色执行 `/tlrs clear` 都会清掉全部。
 - 按 GUID 存，同一条记录 24 小时内不重复查询，过期后在你再次悬停时后台刷新。
 - 查询失败（超时、对方不可观察）不写缓存，同一个人 5 分钟内不重试。
 - 同一时间只跑一个查询；扫过一群玩家时只有停留足够久的那个会被查。
