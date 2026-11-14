@@ -15,7 +15,10 @@ Need: 128  Greed: 342
 (updated:2026-11-14 13:40)
 ```
 
-The values are read from the achievement statistics (1044 Need rolls, 1043 Greed rolls) through the achievement comparison API. Until the server answers you see `Need: -  Greed: -`, and the tooltip refreshes by itself when the data arrives.
+The values are read from the achievement statistics through the achievement comparison API. Until the server answers you see `Need: -  Greed: -`, and the tooltip refreshes by itself when the data arrives.
+
+- Achievement statistic ID 1044: Need rolls
+- Achievement statistic ID 1043: Greed rolls
 
 ### Features
 
@@ -60,7 +63,10 @@ The values are read from the achievement statistics (1044 Need rolls, 1043 Greed
 (updated:2026-11-14 13:40)
 ```
 
-数值取自成就统计（1044 需求掷骰次数、1043 贪婪掷骰次数），通过成就比较接口向服务器查询。数据没回来之前显示 `需求: -  贪婪: -`，回来后提示框会自己刷新。
+数值取自成就统计，通过成就比较接口向服务器查询。数据没回来之前显示 `需求: -  贪婪: -`，回来后提示框会自己刷新。
+
+- 成就统计 ID 1044：需求掷骰次数
+- 成就统计 ID 1043：贪婪掷骰次数
 
 ### 功能
 
@@ -105,7 +111,10 @@ The values are read from the achievement statistics (1044 Need rolls, 1043 Greed
 (updated:2026-11-14 13:40)
 ```
 
-數值取自成就統計（1044 需求擲骰次數、1043 貪婪擲骰次數），透過成就比較介面向伺服器查詢。資料還沒回來之前顯示 `需求: -  貪婪: -`，回來後提示框會自己更新。
+數值取自成就統計，透過成就比較介面向伺服器查詢。資料還沒回來之前顯示 `需求: -  貪婪: -`，回來後提示框會自己更新。
+
+- 成就統計 ID 1044：需求擲骰次數
+- 成就統計 ID 1043：貪婪擲骰次數
 
 ### 功能
 
