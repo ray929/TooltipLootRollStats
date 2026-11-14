@@ -1,0 +1,15 @@
+## Interface: 16001
+## Title: Tooltip Loot Roll Stats
+## Title-zhCN: 需求贪婪统计
+## Title-zhTW: 需求貪婪統計
+## Notes: Shows the hovered player's Need/Greed roll counts from achievement statistics.|n|nType /tlrs for options.
+## Notes-zhCN: 鼠标指向玩家时，在提示框加一行显示其「需求 / 贪婪」掷骰次数（读成就统计，带缓存）。|n|n输入 /tlrs 查看命令。
+## Notes-zhTW: 滑鼠指向玩家時，在提示框加一行顯示其「需求 / 貪婪」擲骰次數（讀成就統計，帶快取）。|n|n輸入 /tlrs 查看指令。
+## Author: ray929
+## Version: 1.0.0
+## SavedVariables: TooltipLootRollStatsDB
+
+Locale.lua
+Core.lua
+Tooltip.lua
+Commands.lua

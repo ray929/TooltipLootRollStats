@@ -1,0 +1,7 @@
+.trae/
+.vscode/
+.codebuddy/
+.workbuddy/
+.temp/
+.test/
+*.bak
