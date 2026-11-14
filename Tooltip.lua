@@ -1,4 +1,4 @@
--- Tooltip.lua -- 在单位提示框里加统计行，并处理"数据晚到"后的刷新
+-- Tooltip.lua -- 在单位提示框里加统计行与更小字号的更新时间，并处理"数据晚到"后的刷新
 local ADDON, ns = ...
 
 local TT = ns.TT
@@ -21,12 +21,33 @@ local function FormatValue(value)
 	return GOLD .. L.COUNT:format(value) .. "|r"
 end
 
-local function BuildLine(entry)
-	local text = L.LINE:format(FormatValue(entry and entry.n), FormatValue(entry and entry.g))
-	if entry and type(entry.t) == "number" then
-		text = text .. " " .. GRAY .. L.UPDATED:format(date(L.DATE, entry.t)) .. "|r"
+-- 提示框一行只能有一种字号，所以更新时间单独占一行，并把那一行的字号调小
+local function ShrinkLastLine(tooltip)
+	if not tooltip.NumLines or not tooltip.GetName then return end
+
+	local okCount, index = pcall(tooltip.NumLines, tooltip)
+	if not okCount or type(index) ~= "number" or index < 1 then return end
+
+	local okName, name = pcall(tooltip.GetName, tooltip)
+	if not okName or not name then return end
+
+	local line = _G[name .. "TextLeft" .. index]
+	if not line or not line.GetFont or not line.SetFont then return end
+
+	local okFont, font, size, flags = pcall(line.GetFont, line)
+	if not okFont or not font or not size then return end
+	pcall(line.SetFont, line, font, math.max(8, size - 2), flags)
+end
+
+local function AddStatsLines(tooltip, entry)
+	local main = L.LINE:format(FormatValue(entry and entry.n), FormatValue(entry and entry.g))
+	if not pcall(tooltip.AddLine, tooltip, main, 1, 1, 1, true) then return end
+	if not entry or type(entry.t) ~= "number" then return end
+
+	local stamp = GRAY .. L.UPDATED:format(date(L.DATE, entry.t)) .. "|r"
+	if pcall(tooltip.AddLine, tooltip, stamp, 1, 1, 1, true) then
+		ShrinkLastLine(tooltip)
 	end
-	return text
 end
 
 -- 提示框里到底是谁：data.guid 是权威身份，GetUnit() 只作补充
@@ -155,7 +176,7 @@ local function OnUnitTooltip(tooltip, data)
 		end
 	end
 
-	pcall(tooltip.AddLine, tooltip, BuildLine(entry), 1, 1, 1, true)
+	AddStatsLines(tooltip, entry)
 end
 
 -- 数据到手后，如果提示框还停在这个人身上，重建一次让它显示新数字

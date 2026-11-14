@@ -10,6 +10,16 @@ local function PrintHelp()
 	TT.AddChat(L.MSG_HELP3)
 	TT.AddChat(L.MSG_HELP4)
 	TT.AddChat(L.MSG_HELP5)
+	TT.AddChat(L.MSG_HELP6)
+end
+
+local function LanguageLabel()
+	local pref = TT:GetLanguagePref()
+	local name = ns.LANG_NAMES[pref] or pref
+	if pref == "auto" then
+		return name .. " (" .. tostring(L.language) .. ")"
+	end
+	return name
 end
 
 SLASH_TOOLTIPLOOTROLLSTATS1 = "/tlrs"
@@ -54,6 +64,23 @@ SlashCmdList["TOOLTIPLOOTROLLSTATS"] = function(msg)
 		else
 			TT.AddChat(L.MSG_SELF_NODATA)
 		end
+	elseif msg == "lang" then
+		TT.AddChat(L.MSG_LANG:format(LanguageLabel()))
+	elseif msg:sub(1, 5) == "lang " then
+		local value = msg:match("^lang%s+(%S+)$")
+		local map = {
+			auto = "auto",
+			enus = "enUS", en = "enUS",
+			zhcn = "zhCN", cn = "zhCN",
+			zhtw = "zhTW", tw = "zhTW",
+		}
+		local code = map[value]
+		if not code then
+			TT.AddChat(L.MSG_LANG_USAGE)
+			return
+		end
+		TT:SetLanguage(code)
+		TT.AddChat(L.MSG_LANG_SET:format(LanguageLabel()))
 	else
 		PrintHelp()
 	end

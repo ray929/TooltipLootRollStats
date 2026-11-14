@@ -62,7 +62,18 @@ function TT:Init()
 	DB = TooltipLootRollStatsDB
 	DB.cache = DB.cache or {}
 	self.playerGUID = UnitGUID("player")
+	ns.SetLanguage(ns.ResolveLanguage(DB.lang))
 	self:Prune()
+end
+
+-- 语言偏好：auto 跟随客户端，其余为固定值，存在存档里
+function TT:GetLanguagePref()
+	return (DB and DB.lang) or "auto"
+end
+
+function TT:SetLanguage(pref)
+	if DB then DB.lang = pref end
+	ns.SetLanguage(ns.ResolveLanguage(pref))
 end
 
 -- 清掉过期记录，并把总条数压到上限以内
