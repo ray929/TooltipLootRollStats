@@ -186,10 +186,12 @@ function ns.OnRequestDone()
 end
 
 function ns.InstallTooltip()
+	local installed = false
 	if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall
 		and Enum and Enum.TooltipDataType and Enum.TooltipDataType.Unit then
-		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, OnUnitTooltip)
-	else
+		installed = pcall(TooltipDataProcessor.AddTooltipPostCall, Enum.TooltipDataType.Unit, OnUnitTooltip)
+	end
+	if not installed then
 		GameTooltip:HookScript("OnTooltipSetUnit", function(self)
 			OnUnitTooltip(self)
 		end)
@@ -199,7 +201,8 @@ end
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
-frame:RegisterEvent("INSPECT_ACHIEVEMENT_READY")
+-- 事件名在某些客户端版本上可能不存在，注册失败就靠轮询兜底，不要让插件加载失败
+pcall(frame.RegisterEvent, frame, "INSPECT_ACHIEVEMENT_READY")
 frame:SetScript("OnEvent", function(self, event, arg1)
 	if event == "ADDON_LOADED" then
 		if arg1 == ADDON then
