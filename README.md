@@ -4,7 +4,7 @@
 
 **Display only. Do not read it as a verdict on anyone.**
 
-The two numbers are Blizzard's own lifetime counters. They say how often a player picked Need or Greed, nothing about whether any single roll was fair.
+The two numbers are that character's all-time totals from Blizzard's statistics. They say how often the player picked Need or Greed, nothing about whether any single roll was fair.
 
 ### What it does
 
@@ -43,13 +43,13 @@ The values are read from the achievement statistics (1044 Need rolls, 1043 Greed
 - Only players the client lets you inspect. Out of range, other faction, or a different phase keeps showing `-`.
 - One achievement comparison runs at a time, so a second player waits for the first to finish or time out.
 - A tooltip line holds a single font size, so the timestamp sits on its own line, two points smaller than the values.
-- The numbers are lifetime counters as the client reports them. The addon adds no estimates and no interpretation.
+- The numbers are all-time totals exactly as the client reports them. The addon adds no estimates and no interpretation.
 
 ## 简体中文
 
 **仅用于数据显示，请勿对号入座。**
 
-这两个数字是暴雪自己的终身计数，只说明该玩家点过多少次需求 / 贪婪，不构成对任何一次分配的判断。
+这两个数字是暴雪统计里该角色的累计次数，只说明该玩家点过多少次需求 / 贪婪，不构成对任何一次分配的判断。
 
 ### 简介
 
@@ -88,13 +88,13 @@ The values are read from the achievement statistics (1044 Need rolls, 1043 Greed
 - 只能读到客户端允许观察的玩家。距离过远、跨阵营、副本相位不同，都会一直显示 `-`。
 - 同一时间只能比较一个玩家，快速换目标时后一个要等前一个结束或超时。
 - 提示框一行只能有一种字号，所以更新时间单独占一行，比数值那行小 2 点。
-- 数字是客户端给出的终身计数，插件不做推算，也不做任何评价。
+- 数字是客户端给出的累计次数，插件不做推算，也不做任何评价。
 
 ## 正體中文
 
 **僅供資料顯示，請勿對號入座。**
 
-這兩個數字是暴雪自己的終身計數，只說明該玩家點過多少次需求 / 貪婪，不構成對任何一次分配的判斷。
+這兩個數字是暴雪統計裡該角色的累計次數，只說明該玩家點過多少次需求 / 貪婪，不構成對任何一次分配的判斷。
 
 ### 簡介
 
@@ -133,4 +133,4 @@ The values are read from the achievement statistics (1044 Need rolls, 1043 Greed
 - 只能讀到客戶端允許觀察的玩家。距離太遠、跨陣營、副本相位不同，都會一直顯示 `-`。
 - 同一時間只能比較一個玩家，快速換目標時後一個要等前一個結束或逾時。
 - 提示框一行只能有一種字級，所以更新時間單獨佔一行，比數值那行小 2 點。
-- 數字是客戶端給出的終身計數，插件不做推算，也不做任何評價。
+- 數字是客戶端給出的累計次數，插件不做推算，也不做任何評價。
