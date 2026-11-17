@@ -39,7 +39,7 @@ STRINGS.enUS = {
 	MSG_HELP5 = "/tlrs debug    toggle debug output",
 	MSG_HELP6 = "/tlrs lang     language: auto, enUS, zhCN, zhTW",
 	MSG_RETIRED = "No longer works: Blizzard removed the Need rolls and Greed rolls statistics. Nice job, Blizzard! Enjoy this... whatever it is.",
-	MSG_RETIRED_CLEARED = "No longer works: Blizzard removed the Need rolls and Greed rolls statistics. The cache has been cleared, you can uninstall the addon now...",
+	MSG_RETIRED_CLEARED = "No longer works. The cache has been cleared, you can uninstall the addon...",
 }
 
 STRINGS.zhCN = {
@@ -66,7 +66,7 @@ STRINGS.zhCN = {
 	MSG_HELP5 = "/tlrs debug    开关调试输出",
 	MSG_HELP6 = "/tlrs lang     切换语言：auto / enUS / zhCN / zhTW",
 	MSG_RETIRED = "已失效！暴雪把成就统计里的「需求掷骰次数」和「贪婪掷骰次数」两项移除了。干的漂亮，暴雪！尽情享受这坨我说不上来是什么的东西吧！",
-	MSG_RETIRED_CLEARED = "已失效！暴雪把成就统计里的「需求掷骰次数」和「贪婪掷骰次数」两项移除了，缓存已经清空，您可以卸载本插件了...",
+	MSG_RETIRED_CLEARED = "已失效，缓存已经清空，您可以卸载本插件了...",
 }
 
 STRINGS.zhTW = {
@@ -93,7 +93,7 @@ STRINGS.zhTW = {
 	MSG_HELP5 = "/tlrs debug    開關除錯輸出",
 	MSG_HELP6 = "/tlrs lang     切換語言：auto / enUS / zhCN / zhTW",
 	MSG_RETIRED = "已失效！暴雪把成就統計裡的「需求擲骰次數」和「貪婪擲骰次數」兩項移除了。幹得漂亮，暴雪！盡情享受這坨我說不上來是什麼的東西吧！",
-	MSG_RETIRED_CLEARED = "已失效！暴雪把成就統計裡的「需求擲骰次數」和「貪婪擲骰次數」兩項移除了，快取已經清空，您可以卸載本插件了...",
+	MSG_RETIRED_CLEARED = "已失效，快取已經清空，您可以卸載本插件了...",
 }
 
 local function ClientLanguage()
