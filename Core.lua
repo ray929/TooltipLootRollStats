@@ -5,6 +5,11 @@ local L = ns.L
 local TT = {}
 ns.TT = TT
 
+-- 暴雪已把 1044 / 1043 两项统计从成就里移除，插件再也取不到数。
+-- true：登录时清空缓存、提示一次，之后不装提示框、不发查询、不留事件。
+-- 万一统计被恢复，改回 false 即可，其余代码不用动。
+ns.RETIRED = true
+
 -- 成就统计 ID
 TT.STAT_NEED = 1044    -- 需求掷骰次数
 TT.STAT_GREED = 1043   -- 贪婪掷骰次数
@@ -255,6 +260,7 @@ function TT:FindToken(guid, preferred)
 end
 
 function TT:StartRequest(guid, token, force)
+	if ns.RETIRED then return false end
 	if not guid or self.inFlight then return false end
 	if not force and not self:NeedsRefresh(guid) then return false end
 

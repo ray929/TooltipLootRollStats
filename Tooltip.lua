@@ -204,16 +204,34 @@ frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
 -- 事件名在某些客户端版本上可能不存在，注册失败就靠轮询兜底，不要让插件加载失败
 pcall(frame.RegisterEvent, frame, "INSPECT_ACHIEVEMENT_READY")
+
+-- 失效流程：缓存里还有东西就清掉，登录时说一句，然后什么都不再装
+local hadCache = false
+
+local function Retire()
+	hadCache = TT:CacheCount() > 0
+	if hadCache then
+		TT:ClearCache()
+	end
+end
+
 frame:SetScript("OnEvent", function(self, event, arg1)
 	if event == "ADDON_LOADED" then
 		if arg1 == ADDON then
 			TT:Init()
+			if ns.RETIRED then Retire() end
 		end
 	elseif event == "PLAYER_LOGIN" then
+		if ns.RETIRED then
+			-- 统计项已被暴雪移除：只留这一句提示，然后摘掉全部事件，
+			-- 不装提示框、不发查询，插件到此为止
+			TT.AddChat(hadCache and L.MSG_RETIRED_CLEARED or L.MSG_RETIRED)
+			pcall(self.UnregisterEvent, self, "PLAYER_LOGIN")
+			pcall(self.UnregisterEvent, self, "INSPECT_ACHIEVEMENT_READY")
+			return
+		end
 		TT.playerGUID = UnitGUID("player")
 		ns.InstallTooltip()
-		-- 统计项已被暴雪移除，插件再也取不到数，登录时说一声，免得被当成网络或距离问题
-		TT.AddChat(L.MSG_RETIRED)
 	elseif event == "INSPECT_ACHIEVEMENT_READY" then
 		TT:OnAchievementReady()
 	end
