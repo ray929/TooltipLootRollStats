@@ -2,6 +2,10 @@
 
 ## English
 
+> **Retired.** Blizzard has removed the Need-roll and Greed-roll counters from the achievement statistics. Statistic IDs 1044 and 1043 no longer exist in the game data, so there is nothing left to read and the addon will keep showing `Need: -  Greed: -`. The rest of this section is kept as a record of what it used to do.
+>
+> The irony is that both counters were Blizzard's own idea.
+
 **Display only. Do not read it as a verdict on anyone.**
 
 The two numbers are that character's all-time totals from Blizzard's statistics. They say how often the player picked Need or Greed, nothing about whether any single roll was fair.
@@ -51,6 +55,10 @@ The values are read from the achievement statistics through the achievement comp
 
 ## 简体中文
 
+> **已失效。** 暴雪把成就统计里的「需求掷骰次数」和「贪婪掷骰次数」两项移除了，统计 ID 1044 / 1043 在游戏数据里已经不存在，插件没有可读的数值，会一直显示 `需求: -  贪婪: -`。以下内容保留，作为它当初做什么的记录。
+>
+> 讽刺的地方在于，这两个数字原本是暴雪自己给的。
+
 **仅用于数据显示，请勿对号入座。**
 
 这两个数字是暴雪统计里该角色的累计次数，只说明该玩家点过多少次需求 / 贪婪，不构成对任何一次分配的判断。
@@ -99,6 +107,10 @@ The values are read from the achievement statistics through the achievement comp
 - 成就界面打开时暂停查询：不去动比较单位，避免和暴雪自己的比较面板互相刷新。
 
 ## 正體中文
+
+> **已失效。** 暴雪把成就統計裡的「需求擲骰次數」和「貪婪擲骰次數」兩項移除了，統計 ID 1044 / 1043 在遊戲資料裡已經不存在，插件沒有可讀的數值，會一直顯示 `需求: -  貪婪: -`。以下內容保留，作為它當初做什麼的記錄。
+>
+> 諷刺的地方在於，這兩個數字原本是暴雪自己給的。
 
 **僅供資料顯示，請勿對號入座。**
 
