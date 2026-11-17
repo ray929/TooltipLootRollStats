@@ -38,6 +38,7 @@ STRINGS.enUS = {
 	MSG_HELP4 = "/tlrs self     print your own roll counts",
 	MSG_HELP5 = "/tlrs debug    toggle debug output",
 	MSG_HELP6 = "/tlrs lang     language: auto, enUS, zhCN, zhTW",
+	MSG_RETIRED = "No longer works: Blizzard removed the Need rolls and Greed rolls statistics. Nice job, Blizzard! Enjoy this... whatever it is.",
 }
 
 STRINGS.zhCN = {
@@ -63,6 +64,7 @@ STRINGS.zhCN = {
 	MSG_HELP4 = "/tlrs self     打印自己的掷骰次数",
 	MSG_HELP5 = "/tlrs debug    开关调试输出",
 	MSG_HELP6 = "/tlrs lang     切换语言：auto / enUS / zhCN / zhTW",
+	MSG_RETIRED = "已失效！暴雪把成就统计里的「需求掷骰次数」和「贪婪掷骰次数」两项移除了。干的漂亮，暴雪！尽情享受这坨我说不上来是什么的东西吧！",
 }
 
 STRINGS.zhTW = {
@@ -88,6 +90,7 @@ STRINGS.zhTW = {
 	MSG_HELP4 = "/tlrs self     列印自己的擲骰次數",
 	MSG_HELP5 = "/tlrs debug    開關除錯輸出",
 	MSG_HELP6 = "/tlrs lang     切換語言：auto / enUS / zhCN / zhTW",
+	MSG_RETIRED = "已失效！暴雪把成就統計裡的「需求擲骰次數」和「貪婪擲骰次數」兩項移除了。幹得漂亮，暴雪！盡情享受這坨我說不上來是什麼的東西吧！",
 }
 
 local function ClientLanguage()

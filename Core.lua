@@ -45,7 +45,7 @@ TT.ToNumber = ToNumber
 
 local function AddChat(msg)
 	if DEFAULT_CHAT_FRAME then
-		DEFAULT_CHAT_FRAME:AddMessage("|cff69ccf0TooltipLootRollStats|r " .. tostring(msg))
+		DEFAULT_CHAT_FRAME:AddMessage("|cff69ccf0[TooltipLootRollStats]|r " .. tostring(msg))
 	end
 end
 TT.AddChat = AddChat

@@ -212,6 +212,8 @@ frame:SetScript("OnEvent", function(self, event, arg1)
 	elseif event == "PLAYER_LOGIN" then
 		TT.playerGUID = UnitGUID("player")
 		ns.InstallTooltip()
+		-- 统计项已被暴雪移除，插件再也取不到数，登录时说一声，免得被当成网络或距离问题
+		TT.AddChat(L.MSG_RETIRED)
 	elseif event == "INSPECT_ACHIEVEMENT_READY" then
 		TT:OnAchievementReady()
 	end
